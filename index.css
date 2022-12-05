@@ -1,0 +1,26 @@
+body {
+    margin: 0;
+    background-color: #1C1C1C;
+}
+
+.container {
+    width: 90vh;
+    height: 90vh;
+    background-color: #1F2937;
+    
+}
+
+
+h3 {
+    font-family: 'Karla';
+    color: #FFFFFF;
+}
+
+span {
+    color: #4ADF86;
+}
+
+p {
+    color: white;
+    font-size: 0.7rem;
+}
