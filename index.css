@@ -1,26 +1,76 @@
+html,
 body {
-    margin: 0;
-    background-color: #1C1C1C;
+  margin: 0;
+  padding: 0;
+  background-color: #1c1c1c;
+  font-family: "Inter";
 }
+
+/********** IF U WANT TO CHOOSE FONTS IN FOLDER ************/
+
+/* @font-face {
+  font-family: "Karla";
+  src: url(Karla-VariableFont_wght.ttf);
+}
+@font-face {
+  font-family: "Inter";
+  src: url(Inter-VariableFont_slntwght.ttf);
+} */
 
 .container {
-    width: 90vh;
-    height: 90vh;
-    background-color: #1F2937;
-    
+  box-sizing: border-box;
+  margin: 10vh 10vw;
+  align-self: center;
+  padding: 10vh 10vw;
+  width: 80vw;
+  height: 80vh;
+  background-color: #1f2937;
 }
 
-
-h3 {
-    font-family: 'Karla';
-    color: #FFFFFF;
+h1 {
+  font-family: "Karla";
+  color: #ffffff;
+  letter-spacing: 0.05rem;
 }
 
 span {
-    color: #4ADF86;
+  color: #4adf86;
+  display: block;
 }
 
 p {
-    color: white;
-    font-size: 0.7rem;
+  color: white;
+}
+
+#generate-btn {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 0.8em;
+  margin-top: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.password-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-top: 1px solid white;
+  margin: 3em auto;
+  padding: 1.5em 0;
+}
+
+.password {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #273549;
+  height: 2.5em;
+  width: 12em;
+  color: #5def92;
+  margin: 0.5em;
+  padding: 0.4em 0.8em;
+  border-radius: 6px;
 }
