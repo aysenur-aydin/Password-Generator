@@ -3,7 +3,12 @@ const characters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", 
 
 const passwordOne = document.getElementById("password-one")
 const passwordTwo = document.getElementById("password-two")
-const passwordLength = 15;
+const rangeInput = document.getElementById("range-input")
+const passLengthText = document.getElementById("pass-length-text")
+
+rangeInput.addEventListener("input", (event) => {
+    passLengthText.textContent = event.target.value
+})
 
 function getRandomCharacter() {
     let randomChar = Math.floor(Math.random() * characters.length)
@@ -12,7 +17,7 @@ function getRandomCharacter() {
 
 function generateRandomPassword() {
     let randomPassword = ""
-    for (let i = 0; i < passwordLength; i++) {
+    for (let i = 0; i < rangeInput.value; i++) {
         randomPassword += getRandomCharacter()
     }
     return randomPassword
