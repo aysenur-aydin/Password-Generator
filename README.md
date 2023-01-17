@@ -1,5 +1,5 @@
 # Password-Generator
-<b>With the help of this program, you may quickly generate a random password.</b>
+<b>With the help of this program, you can easily generate random passwords.</b>
 
 ![password-generator](https://user-images.githubusercontent.com/106872138/212545900-62b2f8d1-c2ad-43b4-99f8-da4f2bfa6d0f.gif)
 
@@ -12,4 +12,4 @@ There are some strech goals for improvement for this project:
 *Checkboxes will be checked once a task has been completed.
 
 -------
-This project was accomplished with <a href="https://scrimba.com/">Scrimba</a> as a course project in the Frontend Developer Career Path.
+This project was a solo project that I accomplished by myself. The design idea was given by <a href="https://scrimba.com/">Scrimba</a> from a course project in the Frontend Developer Career Path.
