@@ -1,7 +1,7 @@
 # Password-Generator
 <b>With the help of this program, you can easily generate random passwords.</b>
 
-![password-generator](https://user-images.githubusercontent.com/106872138/212545900-62b2f8d1-c2ad-43b4-99f8-da4f2bfa6d0f.gif)
+![password-generator](password-generator.gif)
 
 ## Strech Goals
 There are some strech goals for improvement for this project:
