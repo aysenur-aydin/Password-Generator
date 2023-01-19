@@ -79,7 +79,8 @@ input[type="range"]::-webkit-slider-thumb {
   margin-top: 1rem;
   border-radius: 5px;
   cursor: pointer;
-  text-shadow: 0 0 1px rgb(0, 0, 0);
+  text-shadow: 0 0 1px #1c1c1c;
+  box-shadow: 0 0 5px #1c1c1c;
 }
 
 .password-container {
@@ -103,5 +104,12 @@ input[type="range"]::-webkit-slider-thumb {
   margin: 0.5em;
   padding: 0.4em 0.8em;
   border-radius: 6px;
+  border: none;
+  box-shadow: 0 0 5px #1c1c1c;
   letter-spacing: 0.02rem;
+  cursor: pointer;
+}
+
+.password-container button:hover{
+  background: hsl(215, 30%, 30%);
 }

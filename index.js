@@ -23,6 +23,27 @@ function generateRandomPassword() {
     return randomPassword
 }
 
+function copyPassword1() {
+    if (passwordOne.textContent) {
+        let copiedPassword = passwordOne.textContent;
+        navigator.clipboard.writeText(copiedPassword).then(function() {
+            alert("Copied successfully!");
+        })
+    } else {
+        alert("You need to create passwords to create!");
+    }
+}
+function copyPassword2() {
+    if (passwordTwo.textContent) {
+        let copiedPassword = passwordTwo.textContent;
+        navigator.clipboard.writeText(copiedPassword).then(function() {
+            alert("Copied successfully!");
+        })
+    } else {
+        alert("You need to create passwords to create!");
+    }
+}
+
 function generatePasswords() {
     passwordOne.textContent = generateRandomPassword()
     passwordTwo.textContent = generateRandomPassword()
