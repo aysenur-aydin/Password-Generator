@@ -6,7 +6,7 @@
 ## Strech Goals
 There are some strech goals for improvement for this project:
 1.  Ability to set password length :white_check_mark: * <!-- when checkhed :white_check_mark: -->
-2. Add "copy-on-click" :white_large_square: 
+2. Add "copy-on-click" :white_check_mark: 
 3. Toggle "symbols" and "numbers on/off" :white_large_square:
 
 *Checkboxes will be checked once a task has been completed.
