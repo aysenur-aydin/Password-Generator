@@ -19,16 +19,51 @@
         <p>Never use an insecure password again.</p>
 
         <div class="password-settings">
-            <label id="length-label" for="pass-length">Password Length:</label>
-            <span id="pass-length-text">6</span>
-            <input id="range-input" type="range" name="pass-length" value="6" min="6" max="20" step="1">
+            <div>
+                <p>Password Length:</p>
+                <span id="length-text">6</span>
+                <input id="length" type="range" value="6" min="6" max="20" step="1">
+            </div>
+            <div>
+                <p>Include Uppercase:</p>
+                <span id="uppercase-switch" class="toggle">on</span>
+                <label class="switch">
+                    <input id="uppercase" type="checkbox" checked>
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div>
+                <p>Include Lowercase:</p>
+                <span id="lowercase-switch" class="toggle">on</span>
+                <label class="switch">
+                    <input id="lowercase" type="checkbox" checked>
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div>
+                <p>Include Numbers:</p>
+                <span id="numbers-switch" class="toggle">on</span>
+                <label class="switch">
+                    <input id="numbers" type="checkbox" checked>
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div>
+                <p>Include Symbols:</p>
+                <span id="symbols-switch" class="toggle">on</span>
+                <label class="switch">
+                    <input id="symbols" type="checkbox" checked>
+                    <span class="slider round"></span>
+                </label>
+            </div>
         </div>
-        <button id="generate-btn" onclick="generatePasswords()">Generate passwords</button>
-
+        <div>
+            <button id="generate-btn">Generate passwords</button>
+        </div>
         <!-- GENERATED PASSWORDS -->
         <div class="password-container">
-            <button id="password-one" class="password" onclick="copyPassword1()"></button>
-            <button id="password-two" class="password" onclick="copyPassword2()"></button>
+            <button id="password-one" class="password" data-password-one="password-one"></button>
+            <button id="password-two" class="password" data-password-two="password-two"></button>
         </div>
 
     </div>

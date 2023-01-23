@@ -1,50 +1,127 @@
-const characters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z", "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "~", "`", "!", "@", "#", "$", "%", "^", "&", "*", "(", ")", "_", "-", "+", "=", "{", "[", "}", "]", ",", "|", ":", ";", "<", ">", ".", "?",
-    "/"];
+const passwordOne = document.getElementById('password-one')
+const passwordTwo = document.getElementById('password-two')
 
-const passwordOne = document.getElementById("password-one")
-const passwordTwo = document.getElementById("password-two")
-const rangeInput = document.getElementById("range-input")
-const passLengthText = document.getElementById("pass-length-text")
+const lengthEl = document.getElementById('length')
+const uppercaseEl = document.getElementById('uppercase')
+const lowercaseEl = document.getElementById('lowercase')
+const numbersEl = document.getElementById('numbers')
+const symbolsEl = document.getElementById('symbols')
+const generateBtn = document.getElementById('generate-btn')
 
-rangeInput.addEventListener("input", (event) => {
-    passLengthText.textContent = event.target.value
+const randomFunc = {
+    lower: getRandomLower,
+    upper: getRandomUpper,
+    number: getRandomNumber,
+    symbol: getRandomSymbol
+}
+
+// Generate event listen
+lengthEl.addEventListener('input', (e) => {
+    document.getElementById('length-text').textContent = e.target.value
 })
 
-function getRandomCharacter() {
-    let randomChar = Math.floor(Math.random() * characters.length)
-    return characters[randomChar]
+generateBtn.addEventListener('click', () => {
+    const length = +lengthEl.value     // '+' makes length value's type number //
+    const hasUpper = uppercaseEl.checked
+    const hasLower = lowercaseEl.checked
+    const hasNumber = numbersEl.checked
+    const hasSymbol = symbolsEl.checked
+
+    passwordOne.textContent = generatePassword(hasUpper, hasLower, hasNumber, hasSymbol, length)
+    passwordTwo.textContent = generatePassword(hasUpper, hasLower, hasNumber, hasSymbol, length)
+})
+
+// Switch On - Off text
+document.querySelectorAll('input[type=checkbox]').forEach(function(item){
+    item.addEventListener('input', function(e) {
+        if (e.target.id === 'uppercase'){
+            if (uppercaseEl.checked){
+                document.getElementById('uppercase-switch').textContent = "on"
+            } else {
+                document.getElementById('uppercase-switch').textContent = "off"
+            }
+        }
+        else if (e.target.id === 'lowercase'){
+            if (lowercaseEl.checked){
+                document.getElementById('lowercase-switch').textContent = "on"
+            } else {
+                document.getElementById('lowercase-switch').textContent = "off"
+            }
+        }
+        else if (e.target.id === 'numbers'){
+            if (numbersEl.checked){
+                document.getElementById('numbers-switch').textContent = "on"
+            } else {
+                document.getElementById('numbers-switch').textContent = "off"
+            }
+        }
+        else if (e.target.id === 'symbols'){
+            if (symbolsEl.checked){
+                document.getElementById('symbols-switch').textContent = "on"
+            } else {
+                document.getElementById('symbols-switch').textContent = "off"
+            }
+        }
+    })
+})
+
+function getRandomLower() {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 97)
+}
+function getRandomUpper() {
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 65)
+}
+function getRandomNumber() {
+    return String.fromCharCode(Math.floor(Math.random() * 10) + 48)
+}
+function getRandomSymbol() {
+    const symbols = '!@#$%^&*(){}[]=<>/,._-+`~;?:|'
+    return symbols[Math.floor(Math.random() * symbols.length)]
 }
 
-function generateRandomPassword() {
-    let randomPassword = ""
-    for (let i = 0; i < rangeInput.value; i++) {
-        randomPassword += getRandomCharacter()
+// Generate password function
+function generatePassword(upper, lower, number, symbol, length) {
+    let generatedPassword = ''
+
+    const typesCount = upper + lower + number + symbol
+
+    const typesArr = [{ upper }, { lower }, { number }, { symbol }].filter
+        (item => Object.values(item)[0])
+
+    if (typesCount === 0) {
+        return ''
     }
-    return randomPassword
+
+    for (let i = 0; i < length; i += typesCount) {
+        typesArr.forEach(type => {
+            const funcName = Object.keys(type)[0]
+
+            generatedPassword += randomFunc[funcName]()
+        })
+    }
+
+    const finalPassword = generatedPassword.slice(0, length)
+
+    return finalPassword
 }
 
-function copyPassword1() {
-    if (passwordOne.textContent) {
-        let copiedPassword = passwordOne.textContent;
-        navigator.clipboard.writeText(copiedPassword).then(function() {
+// Copy password to clipboard
+document.addEventListener('click', function (e) {
+    if (e.target.dataset.passwordOne) {
+        copyPassword(passwordOne)
+    }
+    else if (e.target.dataset.passwordTwo) {
+        copyPassword(passwordTwo)
+    }
+})
+
+function copyPassword(passwordId) {
+    if (passwordId.textContent) {
+        let copiedPassword = passwordId.textContent;
+        navigator.clipboard.writeText(copiedPassword).then(function () {
             alert("Copied successfully!");
         })
     } else {
-        alert("You need to create passwords to create!");
+        alert("You need to create passwords to create!")
     }
-}
-function copyPassword2() {
-    if (passwordTwo.textContent) {
-        let copiedPassword = passwordTwo.textContent;
-        navigator.clipboard.writeText(copiedPassword).then(function() {
-            alert("Copied successfully!");
-        })
-    } else {
-        alert("You need to create passwords to create!");
-    }
-}
-
-function generatePasswords() {
-    passwordOne.textContent = generateRandomPassword()
-    passwordTwo.textContent = generateRandomPassword()
 }
